@@ -16,7 +16,7 @@ npm install cpx --save-dev
 ```typescript
 import {app, BrowserWindow, ipcMain} from 'electron';
 
-if (process.mas) app.setName('Electron APIs')
+if (process.mas) app.setName('Angular 6 / Electron Demo')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -63,15 +63,9 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
-ipcMain.on('asynchronous-message', (event, arg) => {
-  event.sender.send('asynchronous-reply', `pong-${Math.round(Math.random() * 10000)}`);
-})
 ```
 
-3. Create tsconfig.json for electron main application (src/electron/tsconfig.json). Note: outDir must resolve to the same path that outputPath does in step #999  
+3. Create tsconfig.json for electron main application (src/electron/tsconfig.json). Note: outDir must resolve to the same path that outputPath does in step #10  
 ```json
 {
   "compilerOptions": {
@@ -225,6 +219,7 @@ import 'zone.js/dist/zone-patch-electron';
 ```
 
 10. Create a new project config in ***angular.json***. 
+    - Copy contents from initial project
     - Rename the project to electron
     - Change ***architect/build/builder*** from ***@angular-devkit/build-angular:browser*** to *ng-electron-devkit:renderer*
     - Change ***architect/build/options/outputPath*** to dist/electron
@@ -237,6 +232,7 @@ import 'zone.js/dist/zone-patch-electron';
       }
     ]
     ```
+    - Remove serve section / property 
     - (OPTIONAL) If using routing set ***architect/build/options/baseRef*** to an empty string.
 
 Sample angular.json electron project
@@ -339,7 +335,12 @@ Sample angular.json electron project
     }
 ```
 
-11. Build your project
+11. Add main property to package.json
+```json
+"main": "index.js"
+```
+
+12. Build your project
 ```sh
 npm run build:electron
 ```
