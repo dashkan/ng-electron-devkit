@@ -1,4 +1,4 @@
-# Angular 6 cli devkit for electron
+# Angular Webpack Build Facade for Electron
 Allows targeting electron renderer in Angular 6 applications.
 
 ## Installation
@@ -352,4 +352,4 @@ npm run start:electron
 
 ## Sample Application
 
-Close this repository and checkout the [sample](./sample)
+Clone this repository and checkout the [sample](./sample)
