@@ -32,6 +32,14 @@
             "scripts": []
           },
           "configurations": {
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -57,6 +65,10 @@
             "browserTarget": "sample:build"
           },
           "configurations": {
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "sample:build:hmr"
+            },
             "production": {
               "browserTarget": "sample:build:production"
             }
@@ -139,6 +151,18 @@
             ]
           },
           "configurations": {
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.electron-hmr.ts"
+                },
+                {
+                  "replace": "src/app/ipc.service.ts",
+                  "with": "src/app/ipc.service-electron.ts"
+                }
+              ]
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -155,6 +179,22 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "ng-electron-devkit:dev-server",
+          "options": {
+            "browserTarget": "electron:build"
+          },
+          "configurations": {
+            "hmr": {
+              "hmr": true,
+              "hmrWarning": false,
+              "browserTarget": "electron:build:hmr"
+            },
+            "production": {
+              "browserTarget": "electron:build:production"
             }
           }
         },
@@ -223,5 +263,5 @@
       }
     }
   },
-  "defaultProject": "sample"
+  "defaultProject": "electron"
 }

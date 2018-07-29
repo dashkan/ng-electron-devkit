@@ -31,7 +31,9 @@
       "./node_modules/@types"
     ],
     "types": [
-      "node"
+      "node",
+      "webpack",
+      "webpack-dev-server"
     ]
   },
   "exclude": [

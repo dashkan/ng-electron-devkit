@@ -1,20 +1,22 @@
 {
   "name": "ng-electron-devkit",
   "description": "Angular Webpack Build Facade for Electron",
-  "version": "0.6.8",
-  "main": "dist/src/index.js",
+  "version": "0.7.0-rc.0",
   "builders": "builders.json",
   "scripts": {
     "build": "tsc"
   },
   "dependencies": {
-    "@angular-devkit/architect": "0.6.8",
-    "@angular-devkit/build-angular": "0.6.8",
-    "@angular-devkit/core": "0.6.8"
+    "@angular-devkit/architect": "0.7.0-rc.0",
+    "@angular-devkit/build-angular": "0.7.0-rc.0",
+    "@angular-devkit/build-webpack": "0.7.0-rc.0",
+    "@angular-devkit/core": "0.7.0-rc.0"
   },
   "devDependencies": {
-    "@types/node": "^8.9.1"
-  },  
+    "@types/node": "^8.9.1",
+    "@types/webpack": "^4.4.5",
+    "@types/webpack-dev-server": "^2.9.5"
+  },
   "author": "Ashkan Daie",
   "repository": {
     "type": "git",
