@@ -158,6 +158,17 @@
             }
           }
         },
+        "serve": {
+          "builder": "ng-electron-devkit:dev-server",
+          "options": {
+            "browserTarget": "electron:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "electron:build:production"
+            }
+          }
+        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
