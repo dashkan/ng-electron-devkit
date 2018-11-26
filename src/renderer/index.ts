@@ -1,19 +1,19 @@
-import { 
-  Builder, 
-  BuilderContext, 
-  BuilderConfiguration, 
-  BuildEvent 
+import {
+  BuilderContext,
+  BuilderConfiguration,
+  BuildEvent
 } from "@angular-devkit/architect";
+import { BrowserBuilder, NormalizedBrowserBuilderSchema, BrowserBuilderSchema } from "@angular-devkit/build-angular";
 import { Path, virtualFs } from '@angular-devkit/core';
 import { Observable } from "rxjs";
 import * as fs from 'fs';
-import { BrowserBuilder, NormalizedBrowserBuilderSchema, BrowserBuilderSchema } from "@angular-devkit/build-angular";
+import { electronConfig } from '../electron-webpack-config';
 
 const webpackMerge = require('webpack-merge');
 
 export class ElectronBuilder extends BrowserBuilder {
-  
-  constructor(public context: BuilderContext) { 
+
+  constructor(public context: BuilderContext) {
     super(context);
   }
 
@@ -28,12 +28,6 @@ export class ElectronBuilder extends BrowserBuilder {
     options: NormalizedBrowserBuilderSchema,
   ) {
     let browserConfig = super.buildWebpackConfig(root, projectRoot, host, options);
-    const electronConfig = {
-      target: 'electron-renderer',
-      node: {
-        __dirname: false
-      }
-    };
     const webpackConfigs: {}[] = [
       browserConfig,
       electronConfig

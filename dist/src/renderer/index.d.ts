@@ -1,9 +1,9 @@
 /// <reference types="node" />
 import { BuilderContext, BuilderConfiguration, BuildEvent } from "@angular-devkit/architect";
+import { BrowserBuilder, NormalizedBrowserBuilderSchema, BrowserBuilderSchema } from "@angular-devkit/build-angular";
 import { Path, virtualFs } from '@angular-devkit/core';
 import { Observable } from "rxjs";
 import * as fs from 'fs';
-import { BrowserBuilder, NormalizedBrowserBuilderSchema, BrowserBuilderSchema } from "@angular-devkit/build-angular";
 export declare class ElectronBuilder extends BrowserBuilder {
     context: BuilderContext;
     constructor(context: BuilderContext);
